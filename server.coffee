@@ -2,16 +2,22 @@ home = require 'cozy-home'
 dataSystem = require 'cozy-data-system'
 proxy = require 'cozy-proxy'
 contacts = require 'cozy-contacts'
+emails = require 'cozy-emails'
+files = require 'cozy-files'
+calendar = require 'cozy-calendar'
 
 
 main = (opts, callback) ->
     startPouchDB ->
         startStack ->
             contacts {}, ->
-                callback?()
-                setInterval ->
-                    console.log process.memoryUsage()
-                , 2000
+                emails {}, ->
+                    files ->
+                        calendar 9113, ->
+                            callback?()
+                            setInterval ->
+                                console.log process.memoryUsage()
+                            , 2000
 
 startStack = (callback) ->
     dataSystem ->
@@ -23,7 +29,7 @@ startPouchDB = (callback) ->
     express = require('express')
     app     = express()
     PouchDB = require('pouchdb')
-    app.use('/', require('express-pouchdb')(PouchDB));
+    app.use('/', require('express-pouchdb')(PouchDB))
     app.listen 5984, callback
 
 #main = ->
