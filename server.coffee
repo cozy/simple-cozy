@@ -7,7 +7,7 @@ contacts = require 'cozy-contacts'
 main = (opts, callback) ->
     startStack ->
         contacts {}, ->
-            callback()
+            callback?()
             setInterval ->
                 console.log process.memoryUsage()
             , 2000
@@ -15,8 +15,30 @@ main = (opts, callback) ->
 startStack = (callback) ->
     dataSystem ->
         home ->
-            proxy callback
+            proxy host: '0.0.0.0', callback
+
+
+#main = ->
+    #path = require 'path'
+    #spawn = require('child_process').spawn
+    #dsPath = cwd: path.join __dirname, 'node_modules', 'cozy-data-system'
+    #bat = spawn 'node',  ['build/server.js'],
+        #cwd: dsPath
+
+    #bat.stdout.on 'data', (data) =>
+        #console.log(data)
+
+    #bat.stderr.on 'data', (data) =>
+        #console.log(data)
+
+    #bat.on 'exit', (code) =>
+        #console.log "Child exited with code #{code}"
+
+    #setInterval ->
+        #console.log process.memoryUsage()
+    #, 2000
+
 
 module.exports = main
-
 main() if not module.parent
+
