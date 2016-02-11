@@ -5,18 +5,26 @@ contacts = require 'cozy-contacts'
 
 
 main = (opts, callback) ->
-    startStack ->
-        contacts {}, ->
-            callback?()
-            setInterval ->
-                console.log process.memoryUsage()
-            , 2000
+    startPouchDB ->
+        startStack ->
+            contacts {}, ->
+                callback?()
+                setInterval ->
+                    console.log process.memoryUsage()
+                , 2000
 
 startStack = (callback) ->
     dataSystem ->
         home ->
             proxy host: '0.0.0.0', callback
 
+
+startPouchDB = (callback) ->
+    express = require('express')
+    app     = express()
+    PouchDB = require('pouchdb')
+    app.use('/', require('express-pouchdb')(PouchDB));
+    app.listen 5984, callback
 
 #main = ->
     #path = require 'path'
