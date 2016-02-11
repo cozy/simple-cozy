@@ -1,0 +1,23 @@
+{
+  "name": "simple-cozy",
+  "version": "2.0.0",
+  "author": "Cozy Cloud <contact@cozycloud.cc> (http://cozycloud.cc)",
+  "license": "AGPL-3.0",
+  "engine": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cozy/simple-cozy.git"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "cozy-contacts": "cozy/cozy-contacts",
+    "cozy-data-system": "cozy/cozy-data-system",
+    "cozy-home": "cozy/cozy-home#simple",
+    "cozy-proxy": "cozy/cozy-proxy"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
