@@ -15,7 +15,7 @@
     "cozy-contacts": "cozy/cozy-contacts",
     "cozy-data-system": "cozy/cozy-data-system",
     "cozy-home": "cozy/cozy-home#simple",
-    "cozy-proxy": "cozy/cozy-proxy",
+    "cozy-proxy": "cozy/cozy-proxy#simple",
     "path-extra": "^3.0.0"
   },
   "scripts": {
