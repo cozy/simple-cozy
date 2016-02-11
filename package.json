@@ -13,7 +13,7 @@
   "main": "server.js",
   "dependencies": {
     "cozy-contacts": "cozy/cozy-contacts",
-    "cozy-data-system": "cozy/cozy-data-system",
+    "cozy-data-system": "cozy/cozy-data-system#simple",
     "cozy-home": "cozy/cozy-home#simple",
     "cozy-proxy": "cozy/cozy-proxy#simple",
     "path-extra": "^3.0.0"
