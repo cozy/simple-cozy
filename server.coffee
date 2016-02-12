@@ -5,6 +5,7 @@ contacts = require 'cozy-contacts'
 emails = require 'cozy-emails'
 files = require 'cozy-files'
 calendar = require 'cozy-calendar'
+gandi = require 'gandi'
 
 
 main = (opts, callback) ->
@@ -14,10 +15,11 @@ main = (opts, callback) ->
                 emails {}, ->
                     files ->
                         calendar 9113, ->
-                            callback?()
-                            setInterval ->
-                                console.log process.memoryUsage()
-                            , 2000
+                            gandi ->
+                                callback?()
+                                setInterval ->
+                                    console.log process.memoryUsage()
+                                , 2000
 
 startStack = (callback) ->
     dataSystem ->

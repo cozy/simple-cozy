@@ -19,6 +19,7 @@
     "cozy-calendar": "cozy/cozy-calendar#simple",
     "cozy-home": "cozy/cozy-home#simple",
     "cozy-proxy": "cozy/cozy-proxy#simple",
+    "gandi": "frankrousseau/cozy-gandi",
     "express": "4.13.4",
     "express-pouchdb": "1.0.2",
     "path-extra": "3.0.0",
